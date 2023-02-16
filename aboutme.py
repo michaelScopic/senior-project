@@ -13,6 +13,7 @@ import os
 class Colors:
     reset = "\033[0m"
     bold = "\033[1m"
+    underline = "\033[4m"
     red = "\033[31m"
     redbg = "\033[41m"
     green = "\033[32m"
@@ -56,13 +57,6 @@ def msg_question(*args):
     )
 
 
-# Answer msg
-def msg_answer(*args):
-    print(
-        f"{Colors.blue}{Colors.bold}[ANSWER]{Colors.reset} >> {' '.join(args)} {Colors.reset}"
-    )
-
-
 # An 'ok' msg when faking intializing
 def ok_stat(*args):
     print(f"[ {Colors.green}ok{Colors.reset} ] {' '.join(args)}")
@@ -74,7 +68,7 @@ def clear_screen():
 
 
 ### (Pretend to) initalize, just intentionally wastes some time
-def fake_init():
+def init():
     clear_screen()
     print("==> Initalizing... <==")
     time.sleep(0.3)
@@ -106,7 +100,7 @@ def fake_init():
     time.sleep(2)
 
 
-#### Define a function to display the intro
+#### Display intro
 def intro():
     clear_screen()
     print(f"{Colors.bold}-------- [         INTRO        ] --------{Colors.reset}\n")
@@ -115,35 +109,54 @@ def intro():
     print("So I'll just do this.")
     print("A bit awkward but at least it's something.")
     print("You can view this script's source code at:")
-    print(f"{Colors.blue}https://github.com/michaelScopic/senior-project{Colors.reset}\n")
+    print(f"{Colors.blue}{Colors.underline}https://github.com/michaelScopic/senior-project{Colors.reset}")
+    print("Note: Because this repository is public, I cannot disclose the name of my school.\n")
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
 
 
-#### Function to display the college and career ready section
+#### Display pillar one
 def pillar_one():
     clear_screen()
     print(f"{Colors.bold}-------- [     PILLAR ONE     ] --------{Colors.reset}\n")
-    msg_question("What challenges do you think you will face in the next phase of life?")
-    msg_question("Are you prepared for those challenges?\n")
-
+    msg_question("What challenges do you think you will face in the next phase of life?\n")
+    msg_question("How has this school supported your growth in terms of life-readiness?\n")
+    msg_question("Show how you are/aren't ready for the real world.\n")
+    msg_question("Has this school, or anything for the last 4 years made you reflect/develop")
+    msg_question("the skills necessary to survive alone? \n")
+    msg_question("Do you think that you have made your own choices or just fit in with")
+    msg_question("the social norm?\n")
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
 
+#### Display pillar two
+def pillar_two():
+    clear_screen()
+    print(f"{Colors.bold}-------- [     PILLAR TWO     ] --------{Colors.reset}\n")
+    
+    
+    print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
 
-### Start here
-fake_init()
+### Display pillar three
+def pillar_three():
+    clear_screen()
+    print(f"{Colors.bold}-------- [     PILLAR THREE     ] --------{Colors.reset}\n")
+    
+    
+    print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
+
+
+#### --> Start here <--
+init()
 clear_screen()
 
-### Display menu
+#### Display menu
 while True:
     # Print menu options
     print(f"{Colors.bold}--- Please choose an option: ---{Colors.reset}")
     print(f"1.{Colors.blue} Intro {Colors.reset}")
     print(f"2.{Colors.yellow} Pillar one:{Colors.reset} College and career ready")
-    print(f"3.{Colors.purple} Pillar two:{Colors.reset} ")
-    print(f"4.{Colors.cyan} Pillar three:{Colors.reset} ")
-    print()
-    print(f"0.{Colors.red}{Colors.bold} Exit program{Colors.reset}")
-    print("")
+    print(f"3.{Colors.purple} Pillar two:{Colors.reset} Globally aware")
+    print(f"4.{Colors.cyan} Pillar three:{Colors.reset} Future focused\n")
+    print(f"0.{Colors.red}{Colors.bold} Exit program{Colors.reset}\n")
     print("Put your desired number here: ")
 
     # Get user input
@@ -159,11 +172,17 @@ while True:
         pillar_one()
 
     elif choice == "3":
-        msg_info("You chose option 3")
+        msg_info("User chose: Globally aware\n")
 
+
+    elif choice == "4":
+        msg_info("User chose: Future focused\n")
+        
+        
     elif choice == "0":
         msg_error("User quited...")
         msg_error("Goodbye!")
         break
+        
     else:
         msg_error("Invalid choice, please try again.")
