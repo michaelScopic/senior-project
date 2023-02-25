@@ -7,6 +7,7 @@
 #### Import modules here
 import time
 import os
+import getpass
 
 
 #### Define text colors/formating here
@@ -59,7 +60,9 @@ def msg_question(*args):
 
 # An 'ok' msg when faking intializing
 def ok_stat(*args):
-    print(f"[ {Colors.green}ok{Colors.reset} ] {' '.join(args)}")
+    print(
+        f"[ {Colors.green}ok{Colors.reset} ] {' '.join(args)}"
+    )
 
 
 ### Clear the screen with this
@@ -93,6 +96,7 @@ def init():
     ok_stat("Cracking nuclear launch codes...")
     time.sleep(0.4)
     ok_stat("Hacking into Russian satelllites....")
+    time.sleep(0.3)
     ok_stat("Sending balistic missiles to: 40.41736° N, 82.90771° W ...")
     ok_stat("Done!")
     time.sleep(1)
@@ -104,15 +108,26 @@ def init():
 def intro():
     clear_screen()
     print(f"{Colors.bold}-------- [         INTRO        ] --------{Colors.reset}\n")
-    print("This is my very creative Senior project.")
-    print("I don't know how to fill up the rest of this space.")
-    print("So I'll just do this.")
-    print("A bit awkward but at least it's something.")
-    print("You can view this script's source code at:")
-    print(f"{Colors.blue}{Colors.underline}https://github.com/michaelScopic/senior-project{Colors.reset}")
-    print("Note: Because this repository is public, I cannot disclose the name of my school.\n")
-    print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
+    print(f"{Colors.bold}{Colors.underline}Hey hey, I'm Michael.{Colors.reset}")
+    print(f"{Colors.green}I'm a Linux enthusiast, computer/hardware nerd, and Minecraft veteran.\n")
 
+    print("I do karate and kickboxing with my best friend Jonathan.")
+    print("I write automation for Linux systems, and aspiring to get a job in DevOps or becomming a sysadmin.")
+    print("I mostly write scripts with Bash, but I'm learning more Python, which this presentation is written in.\n")
+
+    print(f"\n{Colors.bold}You can view this script's source code at:{Colors.reset}")
+    print(f"{Colors.blue}{Colors.underline}https://github.com/michaelScopic/senior-project{Colors.reset}\n")
+    print("- Note: Because this repository is public, I cannot disclose my full name or the name of my school.\n")
+    print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
+    getpass.getpass("Press [ENTER] to return to main menu... ")
+    
+#### Display life resume
+def life_resume():
+    clear_screen()
+    print(f"{Colors.bold}-------- [     LIFE RESUME     ] --------{Colors.reset}\n")
+    
+    print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
+    getpass.getpass("Press [ENTER] to return to main menu... ")
 
 #### Display pillar one
 def pillar_one():
@@ -126,6 +141,7 @@ def pillar_one():
     msg_question("Do you think that you have made your own choices or just fit in with")
     msg_question("the social norm?\n")
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
+    getpass.getpass("Press [ENTER] to return to main menu... ")
 
 #### Display pillar two
 def pillar_two():
@@ -134,7 +150,8 @@ def pillar_two():
     
     
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
-
+    getpass.getpass("Press [ENTER] to return to main menu... ")
+    
 ### Display pillar three
 def pillar_three():
     clear_screen()
@@ -142,47 +159,54 @@ def pillar_three():
     
     
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
-
+    getpass.getpass("Press [ENTER] to return to main menu... ")
 
 #### --> Start here <--
-init()
-clear_screen()
+#init()
 
-#### Display menu
+## Display menu
 while True:
+    clear_screen()
     # Print menu options
     print(f"{Colors.bold}--- Please choose an option: ---{Colors.reset}")
+    
     print(f"1.{Colors.blue} Intro {Colors.reset}")
-    print(f"2.{Colors.yellow} Pillar one:{Colors.reset} College and career ready")
-    print(f"3.{Colors.purple} Pillar two:{Colors.reset} Globally aware")
-    print(f"4.{Colors.cyan} Pillar three:{Colors.reset} Future focused\n")
+    print(f"2.{Colors.yellow} {Colors.reset} ")
+    print(f"3.{Colors.purple} {Colors.reset} ")
+    print(f"4.{Colors.cyan} {Colors.reset} \n")
+    
     print(f"0.{Colors.red}{Colors.bold} Exit program{Colors.reset}\n")
-    print("Put your desired number here: ")
-
+    
     # Get user input
-    choice = input()
+    choice = input("Put your desired number here: ")
+
 
     # Process user input
     if choice == "1":
         msg_info("User chose: Intro\n")
+        time.sleep(0.5)
         intro()
 
     elif choice == "2":
-        msg_info("User chose: College and career ready\n")
+        msg_info("User chose: \n")
+        time.sleep(0.5)
         pillar_one()
 
     elif choice == "3":
-        msg_info("User chose: Globally aware\n")
-
+        msg_info("User chose:\n")
+        time.sleep(0.5)
+        pillar_two()
 
     elif choice == "4":
-        msg_info("User chose: Future focused\n")
+        msg_info("User chose: \n")
+        time.sleep(0.5)
+        pillar_three()
         
-        
-    elif choice == "0":
+    elif choice == "0" or choice == "q":
         msg_error("User quited...")
         msg_error("Goodbye!")
         break
         
     else:
         msg_error("Invalid choice, please try again.")
+        time.sleep(1)
