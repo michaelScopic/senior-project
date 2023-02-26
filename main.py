@@ -3,6 +3,9 @@
 #   Have fun looking around!
 #   I've put comments in case you are curious on what the code does. :)
 #   - Michael
+#
+# Written by: michaelScopic (https://github.com/michaelScopic)
+
 
 #### Import modules here
 import time
@@ -54,14 +57,18 @@ def msg_error(*args):
 # Question msg
 def msg_question(*args):
     print(
-        f"{Colors.red}{Colors.bold}[QUESTION]{Colors.reset} >> {' '.join(args)} {Colors.reset}"
+        f"{Colors.red}{Colors.bold}[QUESTION]{Colors.reset} ?? {' '.join(args)} {Colors.reset}"
     )
 
+def msg_answer(*args):
+    print(
+        f"{Colors.blue}{Colors.bold}[ANSWER]{Colors.reset} >> {' '.join(args)} {Colors.reset}"
+    )
 
 # An 'ok' msg when faking intializing
 def ok_stat(*args):
     print(
-        f"[ {Colors.green}ok{Colors.reset} ] {' '.join(args)}"
+        f"[ {Colors.green}OK{Colors.reset} ] {' '.join(args)}"
     )
 
 
@@ -121,6 +128,7 @@ def intro():
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
     getpass.getpass("Press [ENTER] to return to main menu... ")
     
+    
 #### Display life resume
 def life_resume():
     clear_screen()
@@ -129,28 +137,42 @@ def life_resume():
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
     getpass.getpass("Press [ENTER] to return to main menu... ")
 
+
 #### Display pillar one
 def pillar_one():
     clear_screen()
     print(f"{Colors.bold}-------- [     PILLAR ONE     ] --------{Colors.reset}\n")
-    msg_question("What challenges do you think you will face in the next phase of life?\n")
-    msg_question("How has this school supported your growth in terms of life-readiness?\n")
-    msg_question("Show how you are/aren't ready for the real world.\n")
-    msg_question("Has this school, or anything for the last 4 years made you reflect/develop")
-    msg_question("the skills necessary to survive alone? \n")
-    msg_question("Do you think that you have made your own choices or just fit in with")
-    msg_question("the social norm?\n")
+    msg_question("What challenges do you think you will face in the next phase of life?")
+    msg_answer("I have mental disorders, so getting a job and being independent will be a challenge, as I have difficulty remembering to do tasks.\n")
+
+    msg_question("How has this school supported you in terms of life readiness?")
+    msg_answer("This school has shown that I can’t just work on my own interests, and that I need to do things even though I don’t want to.")
+    msg_answer("They provided me with an IEP to cater to my needs, like for my ADHD and social anxiety. \n")
+    
+    msg_question("Prove to us that you are ready for the next step in life.")
+    msg_answer("Am I ready for the real world? Probably not.")
+    msg_answer("I have problems remembering to do stuff, I’m anxious all the time, and I’ll even get a panic attack under certain conditions.")
+    msg_answer("For now, I’m just going to live with my dad, get a decent job, and down the line I’ll go to college.\n")
+    
+    
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
     getpass.getpass("Press [ENTER] to return to main menu... ")
+
 
 #### Display pillar two
 def pillar_two():
     clear_screen()
     print(f"{Colors.bold}-------- [     PILLAR TWO     ] --------{Colors.reset}\n")
+    msg_question("How big is your globe? What is the scope of your knowledge and daily interaction?")
+    msg_answer("My globe/scope is limited to my immediate environment and who I interact with.")
+    msg_answer("Expanding my scope for the world outside brings a lot more confusion and worry for me.\n")
     
-    
+    msg_question("What is the most impactful learning you have done about something outside of your own life?")
+    msg_answer("Honestly, I haven’t really done anything outside of what I’m supposed to do. I can’t have empathy towards something because my brain is unable to “walk in their shoes”.") 
+    msg_answer("I can’t process other people’s feelings because emotions are unpredictable and unstable to me. For example: Bob is happy today. What do you think he would feel the next day? To me, it’s impossible to answer that because so many things can affect how someone feels.")
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
     getpass.getpass("Press [ENTER] to return to main menu... ")
+    
     
 ### Display pillar three
 def pillar_three():
@@ -160,6 +182,18 @@ def pillar_three():
     
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
     getpass.getpass("Press [ENTER] to return to main menu... ")
+    
+
+### Display self reflection
+def self_reflection():
+    clear_screen()
+    print(f"{Colors.bold}-------- [     SELF REFLECTION     ] --------{Colors.reset}\n")
+    
+    
+    print(f"{Colors.bold}---------------------------------------------{Colors.reset}\n")
+    getpass.getpass("Press [ENTER] to return to main menu... ")   
+
+
 
 #### --> Start here <--
 #init()
@@ -170,12 +204,14 @@ while True:
     # Print menu options
     print(f"{Colors.bold}--- Please choose an option: ---{Colors.reset}")
     
-    print(f"1.{Colors.blue} Intro {Colors.reset}")
-    print(f"2.{Colors.yellow} {Colors.reset} ")
-    print(f"3.{Colors.purple} {Colors.reset} ")
-    print(f"4.{Colors.cyan} {Colors.reset} \n")
+    print(f"1. -> {Colors.blue} Intro {Colors.reset}")
+    print(f"2. -> {Colors.yellow} Life resume {Colors.reset}")
+    print(f"3. -> {Colors.purple} Pillar one: College/career ready {Colors.reset}")
+    print(f"4. -> {Colors.cyan} Pillar two: Future focused {Colors.reset}")
+    print(f"5. -> {Colors.green} Pillar three: Globally aware{Colors.reset}")
+    print(f"6. -> {Colors.red} Self reflection {Colors.reset}\n")
     
-    print(f"0.{Colors.red}{Colors.bold} Exit program{Colors.reset}\n")
+    print(f"0.{Colors.underline}{Colors.bold}Exit program{Colors.reset}\n")
     
     # Get user input
     choice = input("Put your desired number here: ")
@@ -188,19 +224,21 @@ while True:
         intro()
 
     elif choice == "2":
-        msg_info("User chose: \n")
+        msg_info("User chose: Life resume\n")
         time.sleep(0.5)
-        pillar_one()
+        life_resume()
 
     elif choice == "3":
         msg_info("User chose:\n")
         time.sleep(0.5)
-        pillar_two()
+        pillar_one()
 
     elif choice == "4":
         msg_info("User chose: \n")
         time.sleep(0.5)
-        pillar_three()
+        pillar_two()
+        
+    
         
     elif choice == "0" or choice == "q":
         msg_error("User quited...")
