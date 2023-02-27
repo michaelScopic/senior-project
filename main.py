@@ -178,8 +178,11 @@ def pillar_two():
 def pillar_three():
     clear_screen()
     print(f"{Colors.bold}-------- [     PILLAR THREE     ] --------{Colors.reset}\n")
+    msg_question("What is your definition of a future focused individual?")
+    msg_answer("Someone who is future focused is someone who has laid the foundation for what they will do in the future, like deciding what college to go to, what career they want to purse, where they will live, who they will live with, etc.\n")
     
-    
+    msg_question("Discuss how, if in any way, your time at this school has supported that.")
+    msg_answer("After being more exposed to computers (mostly thanks to my dad) and taking AP computer science, I want to get a career in the IT department.")
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
     getpass.getpass("Press [ENTER] to return to main menu... ")
     
@@ -188,8 +191,11 @@ def pillar_three():
 def self_reflection():
     clear_screen()
     print(f"{Colors.bold}-------- [     SELF REFLECTION     ] --------{Colors.reset}\n")
+    msg_question("Do you think you represented your best self in your time in high school?")
+    msg_answer("Honestly, I have no idea what my “best self” would look like. I think I’ve done a decent job under all the weight of school, my parents, my friends, and even myself. Because of how restrictive school is, I probably wouldn’t be able to represent my “best self”.\n")
     
-    
+    msg_question("Where do you see yourself progressing from here and how did high school influence that path?")
+    msg_answer("After I leave high school, I will learn more about scripting/programming by myself and then go to a tech college down the line. School influenced this path because it made me realize that web development is not for me. My CS teacher also assisted me with the DevOps/sysadmin side as well, which encourages me to continue down the path I want.")
     print(f"{Colors.bold}---------------------------------------------{Colors.reset}\n")
     getpass.getpass("Press [ENTER] to return to main menu... ")   
 
