@@ -54,19 +54,19 @@ def msg_error(*args):
 # Question msg
 def msg_question(*args):
     print(
-        f"{Colors.red}{Colors.bold}[QUESTION]{Colors.reset} ?? {' '.join(args)} {Colors.reset}"
+        f"{Colors.red}{Colors.bold}[QUESTION]{Colors.reset} ?? {Colors.yellow}{' '.join(args)} {Colors.reset}"
     )
     
 # Answer msg
 def msg_answer(*args):
     print(
-        f"{Colors.blue}{Colors.bold}[ANSWER]{Colors.reset} >> {' '.join(args)} {Colors.reset}"
+        f"{Colors.blue}{Colors.bold}[ANSWER]{Colors.reset} >> {Colors.bold}{' '.join(args)} {Colors.reset}"
     )
 
 # An 'ok' msg when faking intializing
 def ok_stat(*args):
     print(
-        f"[ {Colors.green}OK{Colors.reset} ] {' '.join(args)}"
+        f"[  {Colors.green}OK{Colors.reset}  ] {' '.join(args)}"
     )
 
 
@@ -79,23 +79,78 @@ def clear_screen():
 def init():
     clear_screen()
     print("==> Initalizing... <==")
+    print("=> STAGE 1/4")
+    ok_stat("Started systemd.")
+    time.sleep(1)
+    ok_stat("Found mount points.")
+    ok_stat(f"Reached target: {Colors.bold}Basic system{Colors.reset}")
+    time.sleep(1)
+    print(f"         Starting {Colors.bold}Network{Colors.reset}...")
+    time.sleep(0.6)
+    print(f"         Starting {Colors.bold}Bluetooth daemon{Colors.reset}...")
+    time.sleep(0.8)
+    print(f"         Started {Colors.bold}D-Bus message bus{Colors.reset}...")
+    time.sleep(0.4)
+    print(f"         Starting {Colors.bold}NTP client/server{Colors.reset}...")
     time.sleep(0.3)
+    print(f"         Started {Colors.bold}Virtualization daemon{Colors.reset}.")
+    time.sleep(0.3)
+    print(f"         Starting {Colors.bold}CUPS Scheduler{Colors.reset}...")
+    time.sleep(0.7)
+    print(f"         Scanning {Colors.bold}iSCSI devices{Colors.reset}...")
+    time.sleep(0.2)
+    print(f"         Scanning {Colors.bold}Serial ATA drives{Colors.reset}...")
+    time.sleep(0.5)
+    ok_stat(f"Started {Colors.bold}System Logging Service{Colors.reset}.")
+    time.sleep(0.7)
+    print(f"         Starting {Colors.bold}Network Manager Script Dispatcher Service{Colors.reset}...")
+    time.sleep(0.6)
+    ok_stat(f"Starting {Colors.bold}Virtual Machine{Colors.reset}...")
+    time.sleep(0.2)
+    ok_stat(f"Started {Colors.bold}X11 Display Server{Colors.reset}.")
+    ok_stat("Waiting on Network...")
+    time.sleep(5)
+    for x in range(10):
+        time.sleep(1.5)
+        print(f"{Colors.red}         Network timed out.{Colors.reset}")
+    else:
+        print(f"         Network established on {Colors.bold}eth0{Colors.reset}.")
+    time.sleep(2)
+    print(f"{Colors.bold}=> STAGE 2/4{Colors.reset}")
     ok_stat("Set colors...")
     time.sleep(0.6)
-    ok_stat("Set message functions...")
-    time.sleep(1)
+    ok_stat("Setting up message functions. This can take a bit...")
+    time.sleep(0.5)
+    ok_stat(f"{Colors.bold}msg_info(){Colors.reset} -- Finished.")
+    time.sleep(0.4)
+    ok_stat(f"{Colors.bold}msg_success(){Colors.reset} -- Finished.")
+    time.sleep(0.3)
+    ok_stat(f"{Colors.bold}msg_error(){Colors.reset} -- Finished.")
+    time.sleep(0.6)
+    ok_stat(f"{Colors.bold}msg_question(){Colors.reset} -- Finished.")
+    time.sleep(0.5)
+    ok_stat(f"{Colors.bold}msg_answer(){Colors.reset} -- Finished.")
+    time.sleep(0.7)
+    time.sleep(0.2)
+    print(f"{Colors.bold}=> STAGE 3/4{Colors.reset}")
     ok_stat("Set 'clear_screen()' function...")
     time.sleep(0.4)
     ok_stat("Defining variables...")
     time.sleep(0.5)
     ok_stat("Setup intro...")
     time.sleep(0.4)
+    ok_stat("Setup life resume...")
+    time.sleep(0.7)
     ok_stat("Setup pillar one...")
     time.sleep(0.2)
     ok_stat("Setup pillar two...")
     time.sleep(0.3)
     ok_stat("Setup pillar three...")
     time.sleep(0.6)
+    ok_stat("Setup self reflection...")
+    time.sleep(2)
+    print(f"{Colors.bold}=> STAGE 4/4{Colors.reset}") 
+    time.sleep(0.5)
     ok_stat("Setting up TUI menu...")
     time.sleep(1)
     ok_stat("Cracking nuclear launch codes...")
@@ -103,7 +158,7 @@ def init():
     ok_stat("Hacking into Russian satelllites....")
     time.sleep(0.3)
     ok_stat("Sending balistic missiles to: 40.41736° N, 82.90771° W ...")
-    ok_stat("Done!")
+    time.sleep(1)
     time.sleep(1)
     msg_success("==> Finished initalizing! <==\n")
     time.sleep(2)
@@ -131,7 +186,7 @@ def intro():
 def life_resume():
     clear_screen()
     print(f"{Colors.bold}-------- [     LIFE RESUME     ] --------{Colors.reset}\n")
-    print(f"{Colors.red}My favorate numbers are 5 and multipules of 2 (eg: 2, 4, ,8 16, 32, 64, ...).{Colors.reset}\n")
+    print(f"{Colors.red}My favorate numbers are 5 and multipules of 2 (eg: 2, 4, 8, 16, 32, 64, ...).{Colors.reset}\n")
     print(f"{Colors.cyan}Favorate anime: The Disastrous Life of Saiki K.{Colors.reset}\n")
     print(f"{Colors.yellow}Favorate music genre: Phonk (both agressive and chill){Colors.reset}\n")
     print(f"{Colors.blue}If I could go back in history, I would go to the Civil War and make them fight with grenades.{Colors.reset}\n")
@@ -179,10 +234,12 @@ def pillar_three():
     clear_screen()
     print(f"{Colors.bold}-------- [     PILLAR THREE     ] --------{Colors.reset}\n")
     msg_question("What is your definition of a future focused individual?")
-    msg_answer("Someone who is future focused is someone who has laid the foundation for what they will do in the future, like deciding what college to go to, what career they want to purse, where they will live, who they will live with, etc.\n")
+    msg_answer("Someone who is future focused is someone who has laid the foundation for what they will do in the future.")
+    msg_answer("Like deciding what college to go to, what career they want to purse, where they will live, who they will live with, etc.\n")
     
     msg_question("Discuss how, if in any way, your time at this school has supported that.")
     msg_answer("After being more exposed to computers (mostly thanks to my dad) and taking AP computer science, I want to get a career in the IT department.")
+    msg_answer("I know that I don't want to web development now, and I want to teach myself more about automation and being a sysadmin.")
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
     getpass.getpass(f"Press {Colors.bold}{Colors.blue}[ENTER]{Colors.reset} to return to main menu... ")
 
@@ -192,22 +249,31 @@ def self_reflection():
     clear_screen()
     print(f"{Colors.bold}-------- [     SELF REFLECTION     ] --------{Colors.reset}\n")
     msg_question("Do you think you represented your best self in your time in high school?")
-    msg_answer("Honestly, I have no idea what my “best self” would look like. I think I’ve done a decent job under all the weight of school, my parents, my friends, and even myself. Because of how restrictive school is, I probably wouldn’t be able to represent my “best self”.\n")
+    msg_answer("Honestly, I have no idea what my “best self” would look like.")
+    msg_answer("I think I’ve done a decent job under all the weight of school, my parents, my friends, and even myself. Because of how restrictive school is, I probably wouldn’t be able to represent my “best self”.\n")
     
     msg_question("Where do you see yourself progressing from here and how did high school influence that path?")
     msg_answer("After I leave high school, I will learn more about scripting/programming by myself and then go to a tech college down the line.")
-    msg_answer("School influenced this path because it made me realize that web development is not for me. My CS teacher also assisted me with the DevOps/sysadmin side as well, which encourages me to continue down the path I want.")
+    msg_answer("School influenced this path because it made me realize that web development is not for me.")
+    msg_answer("My CS teacher also assisted me with the DevOps/sysadmin side as well, which encourages me to continue down the path I want.")
     print(f"{Colors.bold}---------------------------------------------{Colors.reset}\n")
     getpass.getpass(f"Press {Colors.bold}[ENTER]{Colors.reset} to return to main menu... ")   
 
 
 
 #### --> Start here <--
-#init()
+init()
 
 ## Display menu
 while True:
     clear_screen()
+    print(f'''{Colors.bold}{Colors.green}
+ ____             _              ____            _           _   
+/ ___|  ___ _ __ (_) ___  _ __  |  _ \ _ __ ___ (_) ___  ___| |_ 
+\___ \ / _ \ '_ \| |/ _ \| '__| | |_) | '__/ _ \| |/ _ \/ __| __|
+ ___) |  __/ | | | | (_) | |    |  __/| | | (_) | |  __/ (__| |_ 
+|____/ \___|_| |_|_|\___/|_|    |_|   |_|  \___// |\___|\___|\__|
+                                              |__/{Colors.reset}\n''')
     # Print menu options
     print(f"{Colors.bold}--- Please choose an option: ---{Colors.reset}")
     
@@ -242,7 +308,7 @@ while True:
 
     elif choice == "4":
         msg_info("User chose: Pillar two - Globally aware \n")
-        time.sleep()
+        time.sleep(1)
         pillar_two()
         
     elif choice == "5":
@@ -257,9 +323,9 @@ while True:
         
     elif choice == "0" or choice == "q":
         msg_error("User quited...")
-        msg_error("Goodbye!")
+        print(f"{Colors.bluebg}Goodbye!{Colors.reset}")
         break
         
     else:
         msg_error("'%s' is invalid, please try again." % choice )
-        time.sleep(3)
+        time.sleep(2)
