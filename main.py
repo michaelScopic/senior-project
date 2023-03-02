@@ -39,13 +39,11 @@ def msg_info(*args):
         f"{Colors.yellow}{Colors.bold}[INFO]{Colors.reset} {' '.join(args)} {Colors.reset}"
     )
 
-
 # Success msg
 def msg_success(*args):
     print(
         f"{Colors.green}{Colors.bold}[SUCCESS]{Colors.reset} {' '.join(args)} {Colors.reset}"
     )
-
 
 # Error msg
 def msg_error(*args):
@@ -53,13 +51,13 @@ def msg_error(*args):
         f"{Colors.red}{Colors.bold}[ERROR]{Colors.reset} {' '.join(args)} {Colors.reset}"
     )
 
-
 # Question msg
 def msg_question(*args):
     print(
         f"{Colors.red}{Colors.bold}[QUESTION]{Colors.reset} ?? {' '.join(args)} {Colors.reset}"
     )
-
+    
+# Answer msg
 def msg_answer(*args):
     print(
         f"{Colors.blue}{Colors.bold}[ANSWER]{Colors.reset} >> {' '.join(args)} {Colors.reset}"
@@ -126,16 +124,20 @@ def intro():
     print(f"{Colors.blue}{Colors.underline}https://github.com/michaelScopic/senior-project{Colors.reset}\n")
     print("- Note: Because this repository is public, I cannot disclose my full name or the name of my school.\n")
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
-    getpass.getpass("Press [ENTER] to return to main menu... ")
+    getpass.getpass(f"Press {Colors.bold}{Colors.blue}[ENTER]{Colors.reset} to return to main menu... ")
     
     
 #### Display life resume
 def life_resume():
     clear_screen()
     print(f"{Colors.bold}-------- [     LIFE RESUME     ] --------{Colors.reset}\n")
+    print(f"{Colors.red}My favorate numbers are 5 and multipules of 2 (eg: 2, 4, ,8 16, 32, 64, ...).{Colors.reset}\n")
+    print(f"{Colors.cyan}Favorate anime: The Disastrous Life of Saiki K.{Colors.reset}\n")
+    print(f"{Colors.yellow}Favorate music genre: Phonk (both agressive and chill){Colors.reset}\n")
+    print(f"{Colors.blue}If I could go back in history, I would go to the Civil War and make them fight with grenades.{Colors.reset}\n")
     
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
-    getpass.getpass("Press [ENTER] to return to main menu... ")
+    getpass.getpass(f"Press {Colors.bold}{Colors.blue}[ENTER]{Colors.reset} to return to main menu... ")
 
 
 #### Display pillar one
@@ -154,9 +156,8 @@ def pillar_one():
     msg_answer("I have problems remembering to do stuff, I’m anxious all the time, and I’ll even get a panic attack under certain conditions.")
     msg_answer("For now, I’m just going to live with my dad, get a decent job, and down the line I’ll go to college.\n")
     
-    
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
-    getpass.getpass("Press [ENTER] to return to main menu... ")
+    getpass.getpass(f"Press {Colors.bold}{Colors.blue}[ENTER]{Colors.reset} to return to main menu... ")
 
 
 #### Display pillar two
@@ -171,8 +172,7 @@ def pillar_two():
     msg_answer("Honestly, I haven’t really done anything outside of what I’m supposed to do. I can’t have empathy towards something because my brain is unable to “walk in their shoes”.") 
     msg_answer("I can’t process other people’s feelings because emotions are unpredictable and unstable to me. For example: Bob is happy today. What do you think he would feel the next day? To me, it’s impossible to answer that because so many things can affect how someone feels.")
     print(f"{Colors.bold}-----------------------------------------{Colors.reset}\n")
-    getpass.getpass("Press [ENTER] to return to main menu... ")
-    
+    getpass.getpass(f"Press {Colors.bold}{Colors.blue}[ENTER]{Colors.reset} to return to main menu... ")   
     
 ### Display pillar three
 def pillar_three():
@@ -184,8 +184,8 @@ def pillar_three():
     msg_question("Discuss how, if in any way, your time at this school has supported that.")
     msg_answer("After being more exposed to computers (mostly thanks to my dad) and taking AP computer science, I want to get a career in the IT department.")
     print(f"{Colors.bold}------------------------------------------{Colors.reset}\n")
-    getpass.getpass("Press [ENTER] to return to main menu... ")
-    
+    getpass.getpass(f"Press {Colors.bold}{Colors.blue}[ENTER]{Colors.reset} to return to main menu... ")
+
 
 ### Display self reflection
 def self_reflection():
@@ -195,9 +195,10 @@ def self_reflection():
     msg_answer("Honestly, I have no idea what my “best self” would look like. I think I’ve done a decent job under all the weight of school, my parents, my friends, and even myself. Because of how restrictive school is, I probably wouldn’t be able to represent my “best self”.\n")
     
     msg_question("Where do you see yourself progressing from here and how did high school influence that path?")
-    msg_answer("After I leave high school, I will learn more about scripting/programming by myself and then go to a tech college down the line. School influenced this path because it made me realize that web development is not for me. My CS teacher also assisted me with the DevOps/sysadmin side as well, which encourages me to continue down the path I want.")
+    msg_answer("After I leave high school, I will learn more about scripting/programming by myself and then go to a tech college down the line.")
+    msg_answer("School influenced this path because it made me realize that web development is not for me. My CS teacher also assisted me with the DevOps/sysadmin side as well, which encourages me to continue down the path I want.")
     print(f"{Colors.bold}---------------------------------------------{Colors.reset}\n")
-    getpass.getpass("Press [ENTER] to return to main menu... ")   
+    getpass.getpass(f"Press {Colors.bold}[ENTER]{Colors.reset} to return to main menu... ")   
 
 
 
@@ -210,14 +211,14 @@ while True:
     # Print menu options
     print(f"{Colors.bold}--- Please choose an option: ---{Colors.reset}")
     
-    print(f"1. -> {Colors.blue} Intro {Colors.reset}")
-    print(f"2. -> {Colors.yellow} Life resume {Colors.reset}")
-    print(f"3. -> {Colors.purple} Pillar one: College/career ready {Colors.reset}")
-    print(f"4. -> {Colors.cyan} Pillar two: Future focused {Colors.reset}")
-    print(f"5. -> {Colors.green} Pillar three: Globally aware{Colors.reset}")
-    print(f"6. -> {Colors.red} Self reflection {Colors.reset}\n")
+    print(f"1. {Colors.blue}Intro {Colors.reset}")
+    print(f"2. {Colors.yellow}Life resume {Colors.reset}")
+    print(f"3. {Colors.purple}Pillar one: College/career ready {Colors.reset}")
+    print(f"4. {Colors.cyan}Pillar two: Future focused {Colors.reset}")
+    print(f"5. {Colors.green}Pillar three: Globally aware{Colors.reset}")
+    print(f"6. {Colors.red}Self reflection {Colors.reset}\n")
     
-    print(f"0.{Colors.underline}{Colors.bold}Exit program{Colors.reset}\n")
+    print(f"0. {Colors.underline}{Colors.bold}Exit program{Colors.reset}\n")
     
     # Get user input
     choice = input("Put your desired number here: ")
@@ -225,26 +226,34 @@ while True:
 
     # Process user input
     if choice == "1":
-        msg_info("User chose: Intro\n")
-        time.sleep(0.5)
+        msg_info("User chose: Intro \n")
+        time.sleep(1)
         intro()
 
     elif choice == "2":
-        msg_info("User chose: Life resume\n")
-        time.sleep(0.5)
+        msg_info("User chose: Life resume \n")
+        time.sleep(1)
         life_resume()
 
     elif choice == "3":
-        msg_info("User chose:\n")
-        time.sleep(0.5)
+        msg_info("User chose: Pillar one - College and career ready \n")
+        time.sleep(1)
         pillar_one()
 
     elif choice == "4":
-        msg_info("User chose: \n")
-        time.sleep(0.5)
+        msg_info("User chose: Pillar two - Globally aware \n")
+        time.sleep()
         pillar_two()
         
+    elif choice == "5":
+        msg_info("User chose: Pillar three - Future focused \n")
+        time.sleep(1)
+        pillar_three()
     
+    elif choice == "6":
+        msg_info("User chose: Self reflection \n")
+        time.sleep(1)
+        self_reflection()
         
     elif choice == "0" or choice == "q":
         msg_error("User quited...")
@@ -252,5 +261,5 @@ while True:
         break
         
     else:
-        msg_error("Invalid choice, please try again.")
-        time.sleep(1)
+        msg_error("'%s' is invalid, please try again." % choice )
+        time.sleep(3)
