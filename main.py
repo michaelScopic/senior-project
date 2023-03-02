@@ -307,12 +307,12 @@ while True:
         pillar_one()
 
     elif choice == "4":
-        msg_info("User chose: Pillar two - Globally aware \n")
+        msg_info("User chose: Pillar two - Future focused \n")
         time.sleep(1)
         pillar_two()
         
     elif choice == "5":
-        msg_info("User chose: Pillar three - Future focused \n")
+        msg_info("User chose: Pillar three - Globally aware \n")
         time.sleep(1)
         pillar_three()
     
